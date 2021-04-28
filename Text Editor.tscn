@@ -1,0 +1,1705 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://Text Editor.gd" type="Script" id=1]
+[ext_resource path="res://Themes/Script Mode/LightTheme.theme" type="Theme" id=2]
+[ext_resource path="res://Fonts/Roboto_Mono/Roboto_Mono-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Godot_logo.png" type="Texture" id=4]
+[ext_resource path="res://CustomThemeDialog.gd" type="Script" id=5]
+[ext_resource path="res://TextEdit.gd" type="Script" id=6]
+[ext_resource path="res://AboutDialog.gd" type="Script" id=7]
+[ext_resource path="res://InfoContainer.gd" type="Script" id=8]
+[ext_resource path="res://Dialogs.gd" type="Script" id=9]
+[ext_resource path="res://MenuBar.gd" type="Script" id=10]
+[ext_resource path="res://Fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Fonts/Roboto/Roboto-BoldItalic.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Fonts/Roboto/Roboto-Italic.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://WarningDialog.gd" type="Script" id=15]
+[ext_resource path="res://PreferencesDialog.gd" type="Script" id=16]
+[ext_resource path="res://FindReplaceDialog.gd" type="Script" id=17]
+[ext_resource path="res://TabContainer.gd" type="Script" id=18]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 15.0
+content_margin_right = 15.0
+content_margin_top = 20.0
+content_margin_bottom = 30.0
+bg_color = Color( 0.59, 0.754, 1, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=3]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Info:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.968627, 0.262745, 0.262745, 1 ), Color( 0.968627, 0.262745, 0.262745, 1 ), Color( 0.968627, 0.262745, 0.262745, 0 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 10.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.701961, 0.8, 1, 0.717647 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 211
+border_width_bottom = 5
+border_color = Color( 0.25098, 0.301961, 0.556863, 1 )
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
+expand_margin_right = 55.0
+
+[sub_resource type="DynamicFont" id=5]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=7]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=8]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=9]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=11]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=12]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 14
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="Theme" id=14]
+default_font = SubResource( 13 )
+Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/styles/normal = null
+
+[sub_resource type="StyleBoxFlat" id=15]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.152941, 0.211765, 0.392157, 1 )
+
+[sub_resource type="Theme" id=16]
+Label/colors/font_color = Color( 0.701961, 0.8, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/styles/normal = null
+
+[sub_resource type="StyleBoxFlat" id=17]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.152941, 0.211765, 0.392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.239216, 0.239216, 0.239216, 1 )
+border_width_bottom = 93
+border_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxLine" id=19]
+color = Color( 0.15, 0.15, 0.15, 1 )
+thickness = 2
+
+[sub_resource type="DynamicFont" id=20]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.701961, 0.8, 1, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+custom_styles/panel = SubResource( 1 )
+tab_align = 0
+drag_to_rearrange_enabled = true
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Untitled" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 47.0
+margin_right = -15.0
+margin_bottom = -30.0
+tab_close_display_policy = 1
+
+[node name="TextEdit" type="TextEdit" parent="TabContainer/Untitled"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+syntax_highlighting = true
+highlight_all_occurrences = true
+smooth_scrolling = true
+v_scroll_speed = 100.0
+caret_blink = true
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MenuBar" type="HBoxContainer" parent="."]
+margin_left = 13.0
+margin_right = 1017.0
+margin_bottom = 24.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File" type="MenuButton" parent="MenuBar"]
+margin_right = 41.0
+margin_bottom = 24.0
+focus_neighbour_left = NodePath("../Help")
+focus_neighbour_right = NodePath("../Edit")
+focus_mode = 2
+text = "File"
+flat = false
+items = [ "New", null, 0, false, false, 0, 0, null, "", false, "Open", null, 0, false, false, 1, 0, null, "", false, "Save", null, 0, false, false, 2, 0, null, "", false, "Save As...", null, 0, false, false, 3, 0, null, "", false, "", null, 0, false, false, 4, 0, null, "", true, "Quit", null, 0, false, false, 5, 0, null, "", false ]
+switch_on_hover = true
+
+[node name="Edit" type="MenuButton" parent="MenuBar"]
+margin_left = 45.0
+margin_right = 89.0
+margin_bottom = 24.0
+focus_neighbour_left = NodePath("../File")
+focus_neighbour_right = NodePath("../View")
+text = "Edit"
+flat = false
+items = [ "Undo", null, 0, false, false, 0, 0, null, "", false, "Redo", null, 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Cut", null, 0, false, false, 3, 0, null, "", false, "Copy", null, 0, false, false, 4, 0, null, "", false, "Paste", null, 0, false, false, 5, 0, null, "", false, "", null, 0, false, false, 6, 0, null, "", true, "Time Stamp", null, 0, false, false, 7, 0, null, "", false, "", null, 0, false, false, 11, 0, null, "", true, "Find/Replace", null, 0, false, false, 9, 0, null, "", false, "", null, 0, false, false, 10, 0, null, "", true, "Preferences", null, 0, false, false, 11, 0, null, "", false ]
+switch_on_hover = true
+
+[node name="View" type="MenuButton" parent="MenuBar"]
+margin_left = 93.0
+margin_right = 143.0
+margin_bottom = 24.0
+focus_neighbour_left = NodePath("../Edit")
+focus_neighbour_right = NodePath("../Format")
+text = "View"
+flat = false
+items = [ "Dark Mode", null, 1, false, false, 0, 0, null, "", false, "Script Mode", null, 1, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Custom Theme   >", null, 0, false, false, 3, 0, null, "", false ]
+switch_on_hover = true
+
+[node name="Format" type="MenuButton" parent="MenuBar"]
+margin_left = 147.0
+margin_right = 213.0
+margin_bottom = 24.0
+focus_neighbour_left = NodePath("../View")
+focus_neighbour_right = NodePath("../Help")
+text = "Format"
+flat = false
+items = [ "Word Wrap", null, 1, false, false, 0, 0, null, "", false, "Minimap     >", null, 0, false, false, 1, 0, null, "", false ]
+switch_on_hover = true
+
+[node name="Help" type="MenuButton" parent="MenuBar"]
+margin_left = 217.0
+margin_right = 265.0
+margin_bottom = 24.0
+focus_neighbour_left = NodePath("../Format")
+focus_neighbour_right = NodePath("../File")
+text = "Help"
+flat = false
+items = [ "How to use?", null, 0, false, true, 1, 0, null, "", false, "About", null, 0, false, false, 1, 0, null, "", false, "Check For Updates...", null, 0, false, false, 2, 0, null, "", false ]
+switch_on_hover = true
+
+[node name="Tween" type="Tween" parent="MenuBar"]
+
+[node name="InfoContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 15.0
+margin_right = -10.0
+margin_bottom = 42.0
+size_flags_vertical = 3
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line" type="Label" parent="InfoContainer"]
+margin_top = 5.0
+margin_right = 35.0
+margin_bottom = 22.0
+text = "Line : "
+
+[node name="LineNum" type="Label" parent="InfoContainer"]
+margin_left = 39.0
+margin_top = 5.0
+margin_right = 47.0
+margin_bottom = 22.0
+text = "0"
+
+[node name="VSeparator" type="VSeparator" parent="InfoContainer"]
+margin_left = 51.0
+margin_right = 55.0
+margin_bottom = 27.0
+
+[node name="Column" type="Label" parent="InfoContainer"]
+margin_left = 59.0
+margin_top = 5.0
+margin_right = 116.0
+margin_bottom = 22.0
+text = "Column : "
+
+[node name="ColumnNum" type="Label" parent="InfoContainer"]
+margin_left = 120.0
+margin_top = 5.0
+margin_right = 128.0
+margin_bottom = 22.0
+text = "0"
+
+[node name="VSeparator2" type="VSeparator" parent="InfoContainer"]
+margin_left = 132.0
+margin_right = 136.0
+margin_bottom = 27.0
+
+[node name="Info" type="Label" parent="InfoContainer"]
+self_modulate = Color( 0.968627, 0.262745, 0.262745, 1 )
+margin_left = 140.0
+margin_top = 5.0
+margin_right = 214.0
+margin_bottom = 22.0
+size_flags_horizontal = 9
+text = "Information"
+align = 2
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InfoContainer"]
+"anims/Info Label" = SubResource( 3 )
+
+[node name="ZoomContainer" type="HBoxContainer" parent="InfoContainer"]
+margin_left = 868.0
+margin_right = 1004.0
+margin_bottom = 27.0
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="InfoContainer/ZoomContainer"]
+margin_top = 5.0
+margin_right = 37.0
+margin_bottom = 22.0
+text = "UTF-8"
+
+[node name="VSeparator" type="VSeparator" parent="InfoContainer/ZoomContainer"]
+margin_left = 41.0
+margin_right = 45.0
+margin_bottom = 27.0
+
+[node name="ZoomButton" type="ToolButton" parent="InfoContainer/ZoomContainer"]
+margin_left = 49.0
+margin_right = 128.0
+margin_bottom = 27.0
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+text = "Zoom : 100"
+
+[node name="VSeparator2" type="VSeparator" parent="InfoContainer/ZoomContainer"]
+margin_left = 132.0
+margin_right = 136.0
+margin_bottom = 27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ZoomPanel" type="PanelContainer" parent="InfoContainer/ZoomContainer/VSeparator2"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 16.0
+margin_top = -37.0
+margin_right = 361.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 345, 38 )
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InfoContainer/ZoomContainer/VSeparator2/ZoomPanel"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 340.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoContainer/ZoomContainer/VSeparator2/ZoomPanel/HBoxContainer"]
+margin_top = 5.0
+margin_right = 105.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+text = "Zoom Amount : "
+
+[node name="HSlider" type="HSlider" parent="InfoContainer/ZoomContainer/VSeparator2/ZoomPanel/HBoxContainer"]
+margin_left = 109.0
+margin_right = 215.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 500.0
+value = 100.0
+exp_edit = true
+ticks_on_borders = true
+
+[node name="SpinBox" type="SpinBox" parent="InfoContainer/ZoomContainer/VSeparator2/ZoomPanel/HBoxContainer"]
+self_modulate = Color( 0.133333, 0.164706, 0.219608, 1 )
+margin_left = 219.0
+margin_right = 281.0
+margin_bottom = 28.0
+max_value = 500.0
+value = 100.0
+suffix = "%"
+
+[node name="ResetButton" type="Button" parent="InfoContainer/ZoomContainer/VSeparator2/ZoomPanel/HBoxContainer"]
+margin_left = 285.0
+margin_right = 330.0
+margin_bottom = 28.0
+text = "Reset"
+
+[node name="Dialogs" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SaveFileDialog" type="FileDialog" parent="Dialogs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -301.5
+margin_top = -180.0
+margin_right = 298.5
+margin_bottom = 180.0
+window_title = "Save a File..."
+resizable = true
+dialog_text = "Select the location where you want to save the file...."
+access = 2
+filters = PoolStringArray( "*.txt ; Text Files" )
+show_hidden_files = true
+current_dir = "/Godot Engine Saved Files/Text Editor"
+current_file = "Untitled"
+current_path = "/Godot Engine Saved Files/Text Editor/Untitled"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpenFileDialog" type="FileDialog" parent="Dialogs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -303.5
+margin_top = -181.5
+margin_right = 303.5
+margin_bottom = 181.5
+window_title = "Open a File"
+resizable = true
+dialog_text = "Select File to open..."
+dialog_hide_on_ok = true
+dialog_autowrap = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.txt ; Text Files" )
+show_hidden_files = true
+current_dir = "/Godot Engine Saved Files/Text Editor"
+current_path = "/Godot Engine Saved Files/Text Editor/"
+
+[node name="SaveDialog" type="WindowDialog" parent="Dialogs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -165.0
+margin_top = -69.0
+margin_right = 165.0
+margin_bottom = 69.0
+popup_exclusive = true
+window_title = "Save File"
+resizable = true
+
+[node name="Label" type="Label" parent="Dialogs/SaveDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.5
+margin_top = -29.5
+margin_right = 150.5
+margin_bottom = 1.5
+size_flags_horizontal = 3
+text = "Do you want to save the changes made?"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialogs/SaveDialog"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -36.0
+margin_right = -20.0
+margin_bottom = -12.0
+custom_constants/separation = 43
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="Dialogs/SaveDialog/HBoxContainer"]
+margin_right = 62.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+text = "Save"
+
+[node name="DontSaveButton" type="Button" parent="Dialogs/SaveDialog/HBoxContainer"]
+margin_left = 105.0
+margin_right = 184.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+text = "Don't Save"
+
+[node name="CancelButton" type="Button" parent="Dialogs/SaveDialog/HBoxContainer"]
+margin_left = 227.0
+margin_right = 290.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="AboutDialog" type="WindowDialog" parent="Dialogs"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -285.5
+margin_top = -197.5
+margin_right = 285.5
+margin_bottom = 197.5
+rect_min_size = Vector2( 163, 156 )
+window_title = "About"
+resizable = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="Dialogs/AboutDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 23.0
+margin_right = -4.0
+margin_bottom = -29.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="What\'s New" type="Tabs" parent="Dialogs/AboutDialog/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 45.0
+margin_right = -5.0
+margin_bottom = -18.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Dialogs/AboutDialog/TabContainer/What\'s New"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dialogs/AboutDialog/TabContainer/What\'s New/ScrollContainer"]
+margin_right = 542.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 500, 0 )
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = SubResource( 5 )
+custom_fonts/bold_italics_font = SubResource( 6 )
+custom_fonts/italics_font = SubResource( 7 )
+custom_fonts/bold_font = SubResource( 8 )
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[b][u]Version 1.9.5:[/u][/b]
+[indent]
+(+) A [url=license]license[/url] of this software has finally been attached.
+
+(+) Added a Preferences Section in the Edit Menu Button. You can now
+     change any default settings you want to have and the settings get
+     saved in your system.
+
+(~) Font Dialog has been moved to the Preferences Dialog.
+
+(-) Removed Font Option from the Format Menu Section.
+[/indent]
+[b][u]Version 1.9.4:[/u][/b]
+[indent]
+(+) Now you may download your next version of Text Editor from the
+     Help Menu Buttton.
+[/indent]
+[b][u]Version 1.9.3:[/u][/b]
+[indent]
+(+) Added an icon to the [b]Text Editor[/b].
+[/indent]
+
+[b][u]Version 1.9.2:[/u][/b]
+[indent]
+(+) Added this [b]What's New[/b] section.
+
+(+) Added animations in Menu Bars, all the Window
+     Dialogs, etc.
+
+(+) Added a zoom control button at the bottom right to adjust 
+     zoom amount (which basically adjust the font size).
+
+(+) Directly open .txt files from your file explorer and Text Editor will 
+      open it for you (If default application for .txt file is Text Editor).
+[/indent]"
+tab_size = 5
+text = "Version 1.9.5:
+	
+(+) A license of this software has finally been attached.
+
+(+) Added a Preferences Section in the Edit Menu Button. You can now
+     change any default settings you want to have and the settings get
+     saved in your system.
+
+(~) Font Dialog has been moved to the Preferences Dialog.
+
+(-) Removed Font Option from the Format Menu Section.
+
+Version 1.9.4:
+	
+(+) Now you may download your next version of Text Editor from the
+     Help Menu Buttton.
+
+Version 1.9.3:
+	
+(+) Added an icon to the Text Editor.
+
+
+Version 1.9.2:
+	
+(+) Added this What's New section.
+
+(+) Added animations in Menu Bars, all the Window
+     Dialogs, etc.
+
+(+) Added a zoom control button at the bottom right to adjust 
+     zoom amount (which basically adjust the font size).
+
+(+) Directly open .txt files from your file explorer and Text Editor will 
+      open it for you (If default application for .txt file is Text Editor).
+"
+fit_content_height = true
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="About App" type="Tabs" parent="Dialogs/AboutDialog/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 45.0
+margin_right = -5.0
+margin_bottom = -18.0
+
+[node name="CreatedBy" type="RichTextLabel" parent="Dialogs/AboutDialog/TabContainer/About App"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -170.0
+margin_right = 170.0
+margin_bottom = 65.0
+bbcode_enabled = true
+bbcode_text = "[center][center]This Text Editor has been created by [url=dev]me[/url] using the"
+text = "This Text Editor has been created by me using the"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Godot_logo" type="TextureRect" parent="Dialogs/AboutDialog/TabContainer/About App"]
+self_modulate = Color( 0.9, 0.9, 0.9, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.5
+margin_top = -102.0
+margin_right = 123.5
+margin_bottom = 7.99979
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinesOfCode" type="Label" parent="Dialogs/AboutDialog/TabContainer/About App"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.0
+margin_top = 25.6266
+margin_right = 172.0
+margin_bottom = 86.6266
+text = "\"It took 342+ lines of code to create this version of Text Editor\""
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Link" type="LinkButton" parent="Dialogs/AboutDialog/TabContainer/About App"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -70.5
+margin_top = -18.0
+margin_right = 70.5
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.0784314, 0.247059, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.231373, 1, 0.545098, 1 )
+text = "www.godotengine.org"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="About the developer" type="Tabs" parent="Dialogs/AboutDialog/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 45.0
+margin_right = -5.0
+margin_bottom = -18.0
+
+[node name="Label" type="Label" parent="Dialogs/AboutDialog/TabContainer/About the developer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -117.0
+margin_right = 117.0
+margin_bottom = 114.0
+text = "This Text Editor is officially made by
+Krishnendu Mondal (INdIEDeV)
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Dialogs/AboutDialog/TabContainer/About the developer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -32.5
+margin_right = 90.0
+margin_bottom = 32.5
+text = "Inspirations:
+
+Notepad from Microsoft
+NuclearPad from Bhavyadeep"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="License" type="Tabs" parent="Dialogs/AboutDialog/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 45.0
+margin_right = -5.0
+margin_bottom = -18.0
+
+[node name="Info" type="RichTextLabel" parent="Dialogs/AboutDialog/TabContainer/License"]
+anchor_right = 1.0
+margin_left = 30.0
+margin_right = -30.0
+margin_bottom = 122.0
+bbcode_enabled = true
+bbcode_text = "This Text Editor has no official license of its own. So, this editor inherits a copy of its parent software's license, i.e., Godot Engine's Software License.
+
+You can get the license [color=blue][url=https://www.godotengine.org/license]here[/url][/color] at the Godot Engine's Website or you may read the copy of the License below:"
+text = "This Text Editor has no official license of its own. So, this editor inherits a copy of its parent software's license, i.e., Godot Engine's Software License.
+
+You can get the license here at the Godot Engine's Website or you may read the copy of the License below:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="License" type="RichTextLabel" parent="Dialogs/AboutDialog/TabContainer/License"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 94.0
+custom_styles/normal = SubResource( 10 )
+custom_fonts/mono_font = SubResource( 11 )
+custom_fonts/normal_font = SubResource( 12 )
+custom_constants/line_separation = 2
+bbcode_enabled = true
+bbcode_text = "Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.
+Copyright (c) 2014-2021 Godot Engine contributors.
+[code]
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+text = "Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.
+Copyright (c) 2014-2021 Godot Engine contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Version" type="Label" parent="Dialogs/AboutDialog"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -51.5509
+margin_top = -20.8674
+margin_right = 36.4491
+margin_bottom = -3.86743
+text = "Version: 1.9.5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinimapDialog" type="ConfirmationDialog" parent="Dialogs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.0
+margin_top = -64.5
+margin_right = 156.0
+margin_bottom = 64.5
+window_title = "Minimap"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogs/MinimapDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = -56.5
+margin_right = 148.0
+margin_bottom = 21.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton" type="CheckButton" parent="Dialogs/MinimapDialog/VBoxContainer"]
+margin_right = 296.0
+margin_bottom = 40.0
+text = "Enable Minimap"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialogs/MinimapDialog/VBoxContainer"]
+margin_top = 44.0
+margin_right = 296.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="Dialogs/MinimapDialog/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 146.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Minimap Size : "
+
+[node name="SpinBox" type="SpinBox" parent="Dialogs/MinimapDialog/VBoxContainer/HBoxContainer"]
+margin_left = 150.0
+margin_right = 296.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = 100.0
+max_value = 300.0
+value = 100.0
+
+[node name="CustomThemeDialog" type="WindowDialog" parent="Dialogs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -337.0
+margin_top = -178.0
+margin_right = 337.0
+margin_bottom = 178.0
+rect_min_size = Vector2( 383, 271 )
+window_title = "Custom Theme"
+resizable = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Dialogs/CustomThemeDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -35.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="Dialogs/CustomThemeDialog/HSplitContainer"]
+margin_right = 321.0
+margin_bottom = 311.0
+size_flags_horizontal = 3
+custom_constants/hseparation = 0
+drag_to_rearrange_enabled = true
+use_hidden_tabs_for_min_size = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colors" type="VBoxContainer" parent="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 45.0
+margin_right = -5.0
+margin_bottom = -18.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer/Colors"]
+margin_right = 317.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer/Colors/VBoxContainer2"]
+margin_right = 317.0
+margin_bottom = 14.0
+text = "Menu Button Color:"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer/Colors/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 317.0
+margin_bottom = 42.0
+text = "Color"
+color = Color( 0.701961, 0.8, 1, 1 )
+edit_alpha = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer/Colors"]
+margin_top = 52.0
+margin_right = 317.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer/Colors/VBoxContainer"]
+margin_right = 317.0
+margin_bottom = 14.0
+text = "Overall Color:"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer/Colors/VBoxContainer"]
+margin_top = 18.0
+margin_right = 317.0
+margin_bottom = 42.0
+text = "Color"
+color = Color( 0.701961, 0.8, 1, 1 )
+edit_alpha = false
+
+[node name="Adjustments" type="VBoxContainer" parent="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 45.0
+margin_right = -5.0
+margin_bottom = -18.0
+
+[node name="Label" type="Label" parent="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer/Adjustments"]
+margin_right = 311.0
+margin_bottom = 14.0
+text = "Margin:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Dialogs/CustomThemeDialog/HSplitContainer"]
+margin_left = 333.0
+margin_right = 654.0
+margin_bottom = 311.0
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="Dialogs/CustomThemeDialog/HSplitContainer/VBoxContainer2"]
+margin_right = 321.0
+margin_bottom = 311.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.701961, 0.8, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogs/CustomThemeDialog/HSplitContainer/VBoxContainer2/ColorRect"]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 264.0
+margin_bottom = 18.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialogs/CustomThemeDialog/HSplitContainer/VBoxContainer2/ColorRect/VBoxContainer"]
+margin_right = 252.0
+margin_bottom = 14.0
+custom_constants/separation = 0
+
+[node name="MenuButton" type="MenuButton" parent="Dialogs/CustomThemeDialog/HSplitContainer/VBoxContainer2/ColorRect/VBoxContainer/HBoxContainer"]
+margin_right = 43.0
+margin_bottom = 14.0
+text = "File"
+flat = false
+switch_on_hover = true
+
+[node name="MenuButton2" type="MenuButton" parent="Dialogs/CustomThemeDialog/HSplitContainer/VBoxContainer2/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 43.0
+margin_right = 87.0
+margin_bottom = 14.0
+text = "Edit"
+flat = false
+switch_on_hover = true
+
+[node name="MenuButton3" type="MenuButton" parent="Dialogs/CustomThemeDialog/HSplitContainer/VBoxContainer2/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 87.0
+margin_right = 137.0
+margin_bottom = 14.0
+text = "View"
+flat = false
+switch_on_hover = true
+
+[node name="MenuButton4" type="MenuButton" parent="Dialogs/CustomThemeDialog/HSplitContainer/VBoxContainer2/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 137.0
+margin_right = 202.0
+margin_bottom = 14.0
+text = "Format"
+flat = false
+switch_on_hover = true
+
+[node name="MenuButton5" type="MenuButton" parent="Dialogs/CustomThemeDialog/HSplitContainer/VBoxContainer2/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 202.0
+margin_right = 252.0
+margin_bottom = 14.0
+text = "Help"
+flat = false
+switch_on_hover = true
+
+[node name="Preview" type="TextEdit" parent="Dialogs/CustomThemeDialog/HSplitContainer/VBoxContainer2/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 20.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG
+
+the quick brown fox jumped over the lazy dog
+
+0123456789
+
+!@#$%^&*( ) [ ] { }
+
++ - x ÷ ="
+syntax_highlighting = true
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialogs/CustomThemeDialog"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -176.5
+margin_top = -28.3674
+margin_right = 176.5
+margin_bottom = -3.36737
+custom_constants/separation = 69
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="Button" parent="Dialogs/CustomThemeDialog/HBoxContainer"]
+margin_right = 71.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+text = "Reset"
+
+[node name="ApplyButton" type="Button" parent="Dialogs/CustomThemeDialog/HBoxContainer"]
+margin_left = 140.0
+margin_right = 212.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+text = "Apply"
+
+[node name="OKButton" type="Button" parent="Dialogs/CustomThemeDialog/HBoxContainer"]
+margin_left = 281.0
+margin_right = 353.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+text = "OK"
+
+[node name="Tween" type="Tween" parent="Dialogs"]
+
+[node name="WarningDialog" type="WindowDialog" parent="Dialogs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.0
+margin_top = -88.5
+margin_right = 172.0
+margin_bottom = 88.5
+window_title = "Warning!"
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Dialogs/WarningDialog"]
+margin_left = 29.0
+margin_top = 45.0
+margin_right = 326.0
+margin_bottom = 82.0
+text = "You have some unsaved work! Are you sure you want to update the app right now?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialogs/WarningDialog"]
+margin_left = 20.0
+margin_top = 135.0
+margin_right = 323.0
+margin_bottom = 170.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="Dialogs/WarningDialog/HBoxContainer"]
+margin_right = 149.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Save and then update!"
+
+[node name="CancelButton" type="Button" parent="Dialogs/WarningDialog/HBoxContainer"]
+margin_left = 153.0
+margin_right = 303.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="HSeparator" type="HSeparator" parent="Dialogs/WarningDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -165.0
+margin_top = 26.5
+margin_right = 172.0
+margin_bottom = 40.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreferencesDialog" type="WindowDialog" parent="Dialogs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -297.0
+margin_top = -177.5
+margin_right = 297.0
+margin_bottom = 177.5
+rect_min_size = Vector2( 360, 200 )
+theme = SubResource( 14 )
+window_title = "Preferences"
+resizable = true
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="Control" parent="Dialogs/PreferencesDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Dialogs/PreferencesDialog/Body"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+split_offset = -162
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreferencesList" type="ItemList" parent="Dialogs/PreferencesDialog/Body/HSplitContainer"]
+margin_right = 150.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 150, 0 )
+custom_styles/bg = SubResource( 15 )
+items = [ "General", null, false, "Font", null, false, "", null, true ]
+
+[node name="TabContainer" type="TabContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer"]
+margin_left = 162.0
+margin_right = 574.0
+margin_bottom = 293.0
+theme = SubResource( 16 )
+custom_styles/panel = SubResource( 17 )
+tabs_visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer"]
+margin_right = 402.0
+margin_bottom = 37.0
+
+[node name="Label" type="Label" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer/HBoxContainer"]
+margin_right = 199.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Always show What's New Dialog at the start"
+autowrap = true
+
+[node name="CheckBox" type="CheckBox" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer/HBoxContainer"]
+margin_left = 203.0
+margin_right = 402.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "No"
+
+[node name="HSeparator" type="HSeparator" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer"]
+margin_top = 41.0
+margin_right = 402.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 402.0
+margin_bottom = 76.0
+
+[node name="Label" type="Label" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer/HBoxContainer2"]
+margin_top = 5.0
+margin_right = 199.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+text = "Theme"
+autowrap = true
+
+[node name="OptionButton" type="OptionButton" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 203.0
+margin_right = 402.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+text = "Light"
+items = [ "Light", null, false, 0, null, "Dark", null, false, 1, null ]
+selected = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 402.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+custom_constants/separation = 21
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2"]
+margin_right = 402.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2"]
+margin_right = 131.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer"]
+margin_right = 131.0
+margin_bottom = 17.0
+text = "Size : "
+
+[node name="FontSize" type="SpinBox" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer"]
+margin_top = 21.0
+margin_right = 131.0
+margin_bottom = 38.0
+min_value = 7.0
+value = 16.0
+
+[node name="FontSizeList" type="ItemList" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer"]
+margin_top = 42.0
+margin_right = 131.0
+margin_bottom = 131.0
+size_flags_vertical = 3
+items = [ "7", null, false, "8", null, false, "9", null, false, "10", null, false, "11", null, false, "12", null, false, "14", null, false, "16", null, false, "18", null, false, "20", null, false, "24", null, false, "28", null, false, "32", null, false ]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2"]
+margin_left = 135.0
+margin_right = 266.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer2"]
+margin_right = 131.0
+margin_bottom = 17.0
+text = "Style : "
+
+[node name="FontList" type="ItemList" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer2"]
+margin_top = 21.0
+margin_right = 131.0
+margin_bottom = 131.0
+size_flags_vertical = 3
+items = [ "Lato", null, false, "Lobster", null, false, "Lora", null, false, "Quicksand", null, false, "Roboto", null, false, "Roboto_Mono", null, false, "PUBG", null, false ]
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2"]
+margin_left = 270.0
+margin_right = 402.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer3"]
+margin_right = 132.0
+margin_bottom = 17.0
+text = "Type : "
+
+[node name="FontTypeList" type="ItemList" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer3"]
+margin_top = 21.0
+margin_right = 132.0
+margin_bottom = 131.0
+size_flags_vertical = 3
+items = [ "Bold", null, false, "Italics", null, false, "BoldItalics", null, false, "Regular", null, false ]
+
+[node name="PanelContainer2" type="Panel" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2"]
+margin_top = 152.0
+margin_right = 402.0
+margin_bottom = 283.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/PanelContainer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/PanelContainer2/ScrollContainer"]
+margin_right = 392.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+custom_constants/separation = 1
+
+[node name="Label" type="Label" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/PanelContainer2/ScrollContainer/VBoxContainer"]
+margin_right = 392.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 0, 16 )
+size_flags_vertical = 1
+text = "Preview"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/PanelContainer2/ScrollContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 392.0
+margin_bottom = 22.0
+custom_styles/separator = SubResource( 19 )
+
+[node name="Preview" type="Label" parent="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/PanelContainer2/ScrollContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 392.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 20 )
+text = "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG
+the quick brown fox jumped over the lazy dog"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Dialogs/PreferencesDialog"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -48.0
+margin_right = -10.0
+margin_bottom = -44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="Dialogs/PreferencesDialog"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -150.0
+margin_top = -40.5
+margin_right = 150.0
+margin_bottom = -5.5
+size_flags_vertical = 3
+custom_constants/separation = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ApplyButton" type="Button" parent="Dialogs/PreferencesDialog/Buttons"]
+margin_right = 73.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Apply"
+
+[node name="OKButton" type="Button" parent="Dialogs/PreferencesDialog/Buttons"]
+margin_left = 113.0
+margin_right = 186.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "OK"
+
+[node name="CancelButton" type="Button" parent="Dialogs/PreferencesDialog/Buttons"]
+margin_left = 226.0
+margin_right = 300.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="FindReplaceDialog" type="WindowDialog" parent="Dialogs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -208.5
+margin_top = -129.5
+margin_right = 208.5
+margin_bottom = 129.5
+rect_min_size = Vector2( 275, 130 )
+popup_exclusive = true
+window_title = "Find/Replace"
+resizable = true
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogs/FindReplaceDialog"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -85.0
+margin_top = 31.0
+margin_right = -6.0
+margin_bottom = 1.0
+custom_constants/separation = 55
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FindButton" type="Button" parent="Dialogs/FindReplaceDialog/VBoxContainer"]
+margin_right = 79.0
+margin_bottom = 27.0
+text = "Find"
+
+[node name="ReplaceButton" type="Button" parent="Dialogs/FindReplaceDialog/VBoxContainer"]
+margin_top = 82.0
+margin_right = 79.0
+margin_bottom = 109.0
+text = "Replace"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Dialogs/FindReplaceDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 9.0
+margin_right = -91.0
+margin_bottom = -41.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Dialogs/FindReplaceDialog/VBoxContainer2"]
+margin_right = 306.0
+margin_bottom = 17.0
+text = "Find what?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FindEdit" type="LineEdit" parent="Dialogs/FindReplaceDialog/VBoxContainer2"]
+margin_top = 21.0
+margin_right = 306.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 0, 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReplaceMode" type="CheckBox" parent="Dialogs/FindReplaceDialog/VBoxContainer2"]
+margin_top = 50.0
+margin_right = 306.0
+margin_bottom = 77.0
+focus_mode = 1
+pressed = true
+enabled_focus_mode = 1
+text = "Replace Mode?"
+flat = true
+
+[node name="Label2" type="Label" parent="Dialogs/FindReplaceDialog/VBoxContainer2"]
+margin_top = 81.0
+margin_right = 306.0
+margin_bottom = 98.0
+text = "Replace with?"
+
+[node name="ReplaceEdit" type="LineEdit" parent="Dialogs/FindReplaceDialog/VBoxContainer2"]
+margin_top = 102.0
+margin_right = 306.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 0, 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Dialogs/FindReplaceDialog"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -41.0
+margin_right = -6.0
+margin_bottom = -35.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialogs/FindReplaceDialog"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -37.0
+margin_top = -32.3734
+margin_right = 37.0
+margin_bottom = -4.37341
+custom_constants/separation = 95
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OKButton" type="Button" parent="Dialogs/FindReplaceDialog/HBoxContainer"]
+margin_right = 74.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+text = "OK"
+
+[node name="MenuButton" type="MenuButton" parent="Dialogs/FindReplaceDialog"]
+margin_left = 20.0
+margin_top = 156.0
+margin_right = 89.0
+margin_bottom = 173.0
+text = "Options"
+flat = false
+items = [ "Match Upper-Case or Lower_Case", null, 1, false, false, 0, 0, null, "", false, "Individual Words", null, 1, false, false, 1, 0, null, "", false, "Match Backwards", null, 1, false, false, 2, 0, null, "", false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="cursor_changed" from="TabContainer/Untitled/TextEdit" to="." method="_on_TextEdit_cursor_changed"]
+[connection signal="focus_entered" from="TabContainer/Untitled/TextEdit" to="InfoContainer" method="_on_TextEdit_focus_entered"]
+[connection signal="text_changed" from="TabContainer/Untitled/TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="toggled" from="InfoContainer/ZoomContainer/ZoomButton" to="InfoContainer" method="_on_ZoomButton_toggled"]
+[connection signal="value_changed" from="InfoContainer/ZoomContainer/VSeparator2/ZoomPanel/HBoxContainer/HSlider" to="InfoContainer" method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="InfoContainer/ZoomContainer/VSeparator2/ZoomPanel/HBoxContainer/SpinBox" to="InfoContainer" method="_on_SpinBox_value_changed"]
+[connection signal="pressed" from="InfoContainer/ZoomContainer/VSeparator2/ZoomPanel/HBoxContainer/ResetButton" to="InfoContainer" method="_on_ResetButton_pressed"]
+[connection signal="file_selected" from="Dialogs/SaveFileDialog" to="." method="_on_SaveFileDialog_file_selected"]
+[connection signal="file_selected" from="Dialogs/OpenFileDialog" to="." method="_on_OpenFileDialog_file_selected"]
+[connection signal="pressed" from="Dialogs/SaveDialog/HBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="Dialogs/SaveDialog/HBoxContainer/DontSaveButton" to="." method="_on_DontSaveButton_pressed"]
+[connection signal="pressed" from="Dialogs/SaveDialog/HBoxContainer/CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="meta_clicked" from="Dialogs/AboutDialog/TabContainer/What's New/ScrollContainer/RichTextLabel" to="Dialogs/AboutDialog" method="_on_RichTextLabel_meta_clicked"]
+[connection signal="meta_clicked" from="Dialogs/AboutDialog/TabContainer/About App/CreatedBy" to="Dialogs/AboutDialog" method="_on_CreatedBy_meta_clicked"]
+[connection signal="pressed" from="Dialogs/AboutDialog/TabContainer/About App/Link" to="." method="_on_Link_pressed"]
+[connection signal="meta_clicked" from="Dialogs/AboutDialog/TabContainer/License/Info" to="Dialogs/AboutDialog" method="_on_Info_meta_clicked"]
+[connection signal="meta_hover_ended" from="Dialogs/AboutDialog/TabContainer/License/Info" to="Dialogs/AboutDialog" method="_on_Info_meta_hover_ended"]
+[connection signal="meta_hover_started" from="Dialogs/AboutDialog/TabContainer/License/Info" to="Dialogs/AboutDialog" method="_on_Info_meta_hover_started"]
+[connection signal="toggled" from="Dialogs/MinimapDialog/VBoxContainer/CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="value_changed" from="Dialogs/MinimapDialog/VBoxContainer/HBoxContainer/SpinBox" to="." method="_on_SpinBox_value_changed"]
+[connection signal="color_changed" from="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer/Colors/VBoxContainer2/ColorPickerButton" to="Dialogs/CustomThemeDialog" method="_on_ColorPickerButton_color_changed"]
+[connection signal="color_changed" from="Dialogs/CustomThemeDialog/HSplitContainer/TabContainer/Colors/VBoxContainer/ColorPickerButton" to="Dialogs/CustomThemeDialog" method="_on_ColorPickerButton_color_changed"]
+[connection signal="pressed" from="Dialogs/CustomThemeDialog/HBoxContainer/ResetButton" to="Dialogs/CustomThemeDialog" method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="Dialogs/CustomThemeDialog/HBoxContainer/ApplyButton" to="Dialogs/CustomThemeDialog" method="_on_ApplyButton_pressed"]
+[connection signal="pressed" from="Dialogs/CustomThemeDialog/HBoxContainer/OKButton" to="Dialogs/CustomThemeDialog" method="_on_OKButton_pressed"]
+[connection signal="pressed" from="Dialogs/WarningDialog/HBoxContainer/SaveButton" to="Dialogs/WarningDialog" method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="Dialogs/WarningDialog/HBoxContainer/CancelButton" to="Dialogs/WarningDialog" method="_on_CancelButton_pressed"]
+[connection signal="item_selected" from="Dialogs/PreferencesDialog/Body/HSplitContainer/PreferencesList" to="Dialogs/PreferencesDialog" method="_on_PreferencesList_item_selected"]
+[connection signal="value_changed" from="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer/FontSize" to="Dialogs/PreferencesDialog" method="_on_FontSize_value_changed"]
+[connection signal="item_selected" from="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer/FontSizeList" to="Dialogs/PreferencesDialog" method="_on_FontSizeList_item_selected"]
+[connection signal="item_selected" from="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer2/FontList" to="Dialogs/PreferencesDialog" method="_on_FontList_item_selected"]
+[connection signal="item_selected" from="Dialogs/PreferencesDialog/Body/HSplitContainer/TabContainer/VBoxContainer2/HBoxContainer2/VBoxContainer3/FontTypeList" to="Dialogs/PreferencesDialog" method="_on_FontTypeList_item_selected"]
+[connection signal="pressed" from="Dialogs/FindReplaceDialog/VBoxContainer/FindButton" to="Dialogs/FindReplaceDialog" method="_on_FindButton_pressed"]
+[connection signal="pressed" from="Dialogs/FindReplaceDialog/VBoxContainer/ReplaceButton" to="Dialogs/FindReplaceDialog" method="_on_ReplaceButton_pressed"]
+[connection signal="toggled" from="Dialogs/FindReplaceDialog/VBoxContainer2/ReplaceMode" to="Dialogs/FindReplaceDialog" method="_on_ReplaceMode_toggled"]
+[connection signal="pressed" from="Dialogs/FindReplaceDialog/HBoxContainer/OKButton" to="Dialogs/FindReplaceDialog" method="_on_OKButton_pressed"]

@@ -1,0 +1,134 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "HBoxContainer",
+"class": "ContributorClass",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/ContributorClass.gd"
+}, {
+"base": "PanelContainer",
+"class": "GistItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/GistItem.gd"
+}, {
+"base": "Reference",
+"class": "GotmDebug",
+"language": "GDScript",
+"path": "res://gotm/GotmDebug.gd"
+}, {
+"base": "Reference",
+"class": "GotmFile",
+"language": "GDScript",
+"path": "res://gotm/GotmFile.gd"
+}, {
+"base": "Reference",
+"class": "GotmLobby",
+"language": "GDScript",
+"path": "res://gotm/GotmLobby.gd"
+}, {
+"base": "Reference",
+"class": "GotmLobbyFetch",
+"language": "GDScript",
+"path": "res://gotm/GotmLobbyFetch.gd"
+}, {
+"base": "Reference",
+"class": "GotmUser",
+"language": "GDScript",
+"path": "res://gotm/GotmUser.gd"
+}, {
+"base": "HBoxContainer",
+"class": "InvitationItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/InvitationItem.gd"
+}, {
+"base": "PanelContainer",
+"class": "RepositoryItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/RepositoryItem.gd"
+}, {
+"base": "Reference",
+"class": "_GotmDebugImpl",
+"language": "GDScript",
+"path": "res://gotm/_impl/_GotmDebugImpl.gd"
+}, {
+"base": "Reference",
+"class": "_GotmImpl",
+"language": "GDScript",
+"path": "res://gotm/_impl/_GotmImpl.gd"
+}, {
+"base": "Reference",
+"class": "_GotmImplUtility",
+"language": "GDScript",
+"path": "res://gotm/_impl/_GotmImplUtility.gd"
+} ]
+_global_script_class_icons={
+"ContributorClass": "",
+"GistItem": "",
+"GotmDebug": "",
+"GotmFile": "",
+"GotmLobby": "",
+"GotmLobbyFetch": "",
+"GotmUser": "",
+"InvitationItem": "",
+"RepositoryItem": "",
+"_GotmDebugImpl": "",
+"_GotmImpl": "",
+"_GotmImplUtility": ""
+}
+
+[application]
+
+config/name="Text Editor"
+run/main_scene="res://Text Editor.tscn"
+run/low_processor_mode=true
+run/low_processor_mode_sleep_usec=16500
+boot_splash/image="res://Intro.png"
+config/icon="res://text editor.png"
+config/windows_native_icon="res://text editor.ico"
+
+[autoload]
+
+CustomSettings="*res://CustomSettings.gd"
+Gotm="*res://gotm/Gotm.gd"
+PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
+IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
+UserData="*res://addons/github-integration/scripts/user_data.gd"
+RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
+
+[compression]
+
+formats/zstd/compression_level=10
+
+[display]
+
+window/size/resizable=false
+window/size/test_width=1024
+window/size/test_height=600
+window/dpi/allow_hidpi=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/github-integration/plugin.cfg" )
+
+[gdnative]
+
+singletons=[  ]
+
+[physics]
+
+3d/active_soft_world=false
+common/enable_object_picking=false
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
